@@ -36,7 +36,7 @@ export class CreateComponent implements OnInit {
     // console.log(this.router.url);
     if(this.href != "/new"){
       this.route.params.pipe(switchMap((params: Params) => {
-        return this.movieService.getSingleMovie(params.movieid);
+        return this.movieService.getSinglePetItem(params.movieid);
       }))
         .subscribe((newMovie: Movie) => {
           this.newMovie = newMovie;

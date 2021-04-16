@@ -10,7 +10,7 @@ router
 
 router
     .route('/movies/:movieid')
-    .get(ctrlMovie.getSingleMovie)
+    .get(ctrlMovie.getSinglePetItem)
     .put(ctrlMovie.updateMovie)
     .delete(ctrlMovie.deleteMovie)
 

@@ -19,7 +19,7 @@ export class MovieServiceService {
       .catch(this.handleError);
   }
 
-  getSingleMovie(movieId: string): Promise<void | Movie> {
+  getSinglePetItem(movieId: string): Promise<void | Movie> {
     return this.http.get(this.moviesUrl + '/' + movieId)
       .toPromise()
       .then(response => response as Movie).catch(this.handleError);

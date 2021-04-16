@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Movie = mongoose.model('Movie');
 
 
-const getSingleMovie = function (req, res) {
+const getSinglePetItem = function (req, res) {
     Movie.findById(req.params.movieid)
         .exec((err, movieData) => {
             if (!movieData) {
@@ -123,7 +123,7 @@ const deleteMovie = function (req, res) {
 module.exports = {
     getPetItem,
     createMovie,
-    getSingleMovie,
+    getSinglePetItem,
     updateMovie,
     deleteMovie
 }
