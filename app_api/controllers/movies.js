@@ -22,7 +22,7 @@ const getSingleMovie = function (req, res) {
         });
 
 };
-const getMovies = function (req, res) {
+const getPetItem = function (req, res) {
     Movie.find().exec(function (err, movieData) {
         if (err) {
             res.status(400).json(err);
@@ -121,7 +121,7 @@ const deleteMovie = function (req, res) {
 };
 
 module.exports = {
-    getMovies,
+    getPetItem,
     createMovie,
     getSingleMovie,
     updateMovie,

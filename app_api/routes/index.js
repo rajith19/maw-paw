@@ -5,7 +5,7 @@ const ctrlMovie = require('../controllers/movies')
 
 router
     .route('/movies')
-    .get(ctrlMovie.getMovies)
+    .get(ctrlMovie.getPetItem)
     .post(ctrlMovie.createMovie)
 
 router
