@@ -56,7 +56,7 @@ export class CreateComponent implements OnInit {
     if (this.href != "/new") {
       this.movieService.updateMovie(newMovie);
     } else {
-     this.movieService.createMovie(newMovie);
+     this.movieService.createPetItem(newMovie);
       //  console.log("res", newMovie);
     }
   }

@@ -25,7 +25,7 @@ export class MovieServiceService {
       .then(response => response as Movie).catch(this.handleError);
   }
 
-  createMovie(newMovie: Movie): Promise<void | Movie> {
+  createPetItem(newMovie: Movie): Promise<void | Movie> {
     return this.http.post(this.moviesUrl, newMovie)
       .toPromise()
       .then(response => {response as Movie, this.router.navigate(['list']);})

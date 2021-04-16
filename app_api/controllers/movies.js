@@ -32,7 +32,7 @@ const getPetItem = function (req, res) {
     });
 };
 
-const createMovie = function (req, res) {
+const createPetItem = function (req, res) {
     console.log("req", req.body)
     Movie.create({
         name: req.body.name,
@@ -122,7 +122,7 @@ const deleteMovie = function (req, res) {
 
 module.exports = {
     getPetItem,
-    createMovie,
+    createPetItem,
     getSinglePetItem,
     updateMovie,
     deleteMovie
