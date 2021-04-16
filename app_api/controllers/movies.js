@@ -60,7 +60,7 @@ const createPetItem = function (req, res) {
 
 };
 
-const updateMovie = function (req, res) {
+const updatePetItem = function (req, res) {
     if (!req.params.movieid) {
         res.status(404).json({ "message": "Not found, movieid is required" })
         return;
@@ -124,6 +124,6 @@ module.exports = {
     getPetItem,
     createPetItem,
     getSinglePetItem,
-    updateMovie,
+    updatePetItem,
     deletePetItem
 }

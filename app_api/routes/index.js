@@ -11,7 +11,7 @@ router
 router
     .route('/movies/:movieid')
     .get(ctrlMovie.getSinglePetItem)
-    .put(ctrlMovie.updateMovie)
+    .put(ctrlMovie.updatePetItem)
     .delete(ctrlMovie.deletePetItem)
 
 module.exports = router;

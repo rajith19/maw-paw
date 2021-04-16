@@ -40,7 +40,7 @@ export class MovieServiceService {
   }
 
 
-  updateMovie(newMovie: Movie): Promise<void | Movie> {
+  updatePetItem(newMovie: Movie): Promise<void | Movie> {
     console.log("new", newMovie)
     return this.http.put(this.moviesUrl + '/' + newMovie._id, newMovie)
       .toPromise()
