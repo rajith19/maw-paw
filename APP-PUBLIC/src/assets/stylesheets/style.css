@@ -32,6 +32,10 @@ legend {
   background-color: #f7f7f7;
 }
 
+.navbar .container{
+  max-width: 1300px!important;
+}
+
 .navbar-brand {
   font-family: "Chelsea Market", cursive;
   color: #8fd3e8;
@@ -355,4 +359,9 @@ section.bg{
 }
 .trans{
   background: rgba(0,0,0,0.7);
+}
+
+/* about */
+#about{
+  padding: 5rem!important;
 }
