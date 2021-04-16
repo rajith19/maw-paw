@@ -356,3 +356,7 @@ section.bg{
 .trans{
   background: rgba(0,0,0,0.7);
 }
+
+.picsum-img-wrapper img{
+  width : 100%;
+}
