@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Movie = mongoose.model('Movie');
+const Movie = mongoose.model('PetItem');
 
 
 const getSinglePetItem = function (req, res) {

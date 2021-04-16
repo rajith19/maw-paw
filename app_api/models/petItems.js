@@ -14,7 +14,7 @@ const reviewSchema = new mongoose.Schema({
 
 
 
-const movieSchema = new mongoose.Schema({
+const petItemSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -33,4 +33,4 @@ const movieSchema = new mongoose.Schema({
 });
 
 
-mongoose.model('Movie', movieSchema);
+mongoose.model('PetItem', petItemSchema);
