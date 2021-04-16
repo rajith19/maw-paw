@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 
-let dbURI = "mongodb+srv://rajith:rajith0627@cluster0.qnjpb.mongodb.net/myMovieDB?retryWrites=true&w=majority"; //Remote DB connection
+let dbURI = "mongodb+srv://groupProject:groupProject123@cluster0.qnjpb.mongodb.net/myPetStoreDB?retryWrites=true&w=majority"; //Remote DB connection
 
-// if (process.env.NODE_ENV === 'production') {
-//     dbURI = "mongodb+srv://rajith:rajith0627@cluster0.qnjpb.mongodb.net/myMovieDB?retryWrites=true&w=majority"; //Remote DB connection
-// }
-
-mongoose.connect(dbURI, { dbName: 'myMovieDB', useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(dbURI, { dbName: 'myPetStoreDB', useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);
