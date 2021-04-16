@@ -32,7 +32,7 @@ export class MovieServiceService {
       .catch(this.handleError);
   }
 
-  deleteMovie(movieId: string){
+  deletePetItem(movieId: string){
     return this.http.delete(this.moviesUrl + '/' + movieId)
     .toPromise()
     .then(result => {result as any, this.router.navigate(['list'])})

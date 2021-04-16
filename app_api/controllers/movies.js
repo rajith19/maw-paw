@@ -97,7 +97,7 @@ const updateMovie = function (req, res) {
         })
 };
 
-const deleteMovie = function (req, res) {
+const deletePetItem = function (req, res) {
     const movieid = req.params.movieid;
     if (movieid) {
         Movie
@@ -125,5 +125,5 @@ module.exports = {
     createPetItem,
     getSinglePetItem,
     updateMovie,
-    deleteMovie
+    deletePetItem
 }

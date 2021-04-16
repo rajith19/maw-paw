@@ -36,8 +36,8 @@ export class DetailsPageComponent implements OnInit {
       });
   }
 
-  deleteMovie(id){
-    var check = this.movieService.deleteMovie(id);
+  deletePetItem(id){
+    var check = this.movieService.deletePetItem(id);
   }
 
   btnClick(id){
