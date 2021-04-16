@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const Movie = mongoose.model('PetItem');
+const PetItem = mongoose.model('PetItem');
 
 
 const getSinglePetItem = function (req, res) {
-    Movie.findById(req.params.movieid)
+    PetItem.findById(req.params.movieid)
         .exec((err, movieData) => {
             if (!movieData) {
                 return res
@@ -23,7 +23,7 @@ const getSinglePetItem = function (req, res) {
 
 };
 const getPetItem = function (req, res) {
-    Movie.find().exec(function (err, movieData) {
+    PetItem.find().exec(function (err, movieData) {
         if (err) {
             res.status(400).json(err);
             return;
@@ -34,7 +34,7 @@ const getPetItem = function (req, res) {
 
 const createPetItem = function (req, res) {
     console.log("req", req.body)
-    Movie.create({
+    PetItem.create({
         name: req.body.name,
         cardImage: req.body.cardImage,
         genres: req.body.genres.split(","),
@@ -65,7 +65,7 @@ const updatePetItem = function (req, res) {
         res.status(404).json({ "message": "Not found, movieid is required" })
         return;
     }
-    Movie.findById(req.params.movieid)
+    PetItem.findById(req.params.movieid)
         .exec((err, movieData) => {
             if (!movieData) {
                 res.status(404).json({ "message": "movieid not found" });
@@ -100,7 +100,7 @@ const updatePetItem = function (req, res) {
 const deletePetItem = function (req, res) {
     const movieid = req.params.movieid;
     if (movieid) {
-        Movie
+        PetItem
             .findByIdAndRemove(movieid)
             .exec((err, movieData) => {
                 if (err) {
