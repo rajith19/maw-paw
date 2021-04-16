@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-const Movie = mongoose.model('Movie');
+const PetItem = mongoose.model('PetItem');
 
 
-const getSingleMovie = function (req, res) {
-    Movie.findById(req.params.movieid)
-        .exec((err, movieData) => {
-            if (!movieData) {
+const getSinglePetItem = function (req, res) {
+    PetItem.findById(req.params.petItemid)
+        .exec((err, petItemData) => {
+            if (!petItemData) {
                 return res
                     .status(404)
                     .json({
-                        "message": "movieData not found"
+                        "message": "petItemData not found"
                     });
             } else if (err) {
                 return res
@@ -18,23 +18,23 @@ const getSingleMovie = function (req, res) {
             }
             res
                 .status(200)
-                .json(movieData);
+                .json(petItemData);
         });
 
 };
-const getMovies = function (req, res) {
-    Movie.find().exec(function (err, movieData) {
+const getPetItem = function (req, res) {
+    PetItem.find().exec(function (err, petItemData) {
         if (err) {
             res.status(400).json(err);
             return;
         }
-        res.status(200).json(movieData);
+        res.status(200).json(petItemData);
     });
 };
 
-const createMovie = function (req, res) {
+const createPetItem = function (req, res) {
     console.log("req", req.body)
-    Movie.create({
+    PetItem.create({
         name: req.body.name,
         cardImage: req.body.cardImage,
         genres: req.body.genres.split(","),
@@ -46,7 +46,7 @@ const createMovie = function (req, res) {
             reviewText: req.body.reviews[0].reviewText,
         }
     },
-        (err, movieData) => {
+        (err, petItemData) => {
             if (err) {
                 res
                     .status(400)
@@ -54,21 +54,21 @@ const createMovie = function (req, res) {
             } else {
                 res
                     .status(201)
-                    .json(movieData);
+                    .json(petItemData);
             }
         });
 
 };
 
-const updateMovie = function (req, res) {
-    if (!req.params.movieid) {
-        res.status(404).json({ "message": "Not found, movieid is required" })
+const updatePetItem = function (req, res) {
+    if (!req.params.petItemid) {
+        res.status(404).json({ "message": "Not found, petItemid is required" })
         return;
     }
-    Movie.findById(req.params.movieid)
-        .exec((err, movieData) => {
-            if (!movieData) {
-                res.status(404).json({ "message": "movieid not found" });
+    PetItem.findById(req.params.petItemid)
+        .exec((err, petItemData) => {
+            if (!petItemData) {
+                res.status(404).json({ "message": "petItemid not found" });
                 return;
             } else if (err) {
                 res.status(400).json(err);
@@ -76,33 +76,33 @@ const updateMovie = function (req, res) {
             }
 
             // console.log("req.body.genres", req.body.genres.toString().split(','))
-            movieData.name = req.body.name,
-                movieData.cardImage = req.body.cardImage,
-                movieData.genres = req.body.genres.toString().split(','),
-                movieData.upcoming = req.body.upcoming,
-                movieData.price = req.body.price,
-                movieData.reviews= {
+            petItemData.name = req.body.name,
+                petItemData.cardImage = req.body.cardImage,
+                petItemData.genres = req.body.genres.toString().split(','),
+                petItemData.upcoming = req.body.upcoming,
+                petItemData.price = req.body.price,
+                petItemData.reviews= {
                     author: req.body.reviews[0].author,
                     rating: req.body.reviews[0].rating,
                     reviewText: req.body.reviews[0].reviewText,
                 }
-                movieData.save((err, movieData) => {
+                petItemData.save((err, petItemData) => {
                     if (err) {
                         res.status(404).json(err);
                     }
                     else {
-                        res.status(200).json(movieData);
+                        res.status(200).json(petItemData);
                     }
                 })
         })
 };
 
-const deleteMovie = function (req, res) {
-    const movieid = req.params.movieid;
-    if (movieid) {
-        Movie
-            .findByIdAndRemove(movieid)
-            .exec((err, movieData) => {
+const deletePetItem = function (req, res) {
+    const petItemid = req.params.petItemid;
+    if (petItemid) {
+        PetItem
+            .findByIdAndRemove(petItemid)
+            .exec((err, petItemData) => {
                 if (err) {
                     res
                         .status(404)
@@ -116,14 +116,14 @@ const deleteMovie = function (req, res) {
     } else {
         res
             .status(404)
-            .json({ "message": "No movieid" });
+            .json({ "message": "No petItemid" });
     }
 };
 
 module.exports = {
-    getMovies,
-    createMovie,
-    getSingleMovie,
-    updateMovie,
-    deleteMovie
+    getPetItem,
+    createPetItem,
+    getSinglePetItem,
+    updatePetItem,
+    deletePetItem
 }

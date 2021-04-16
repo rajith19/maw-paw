@@ -21,7 +21,7 @@ export class DetailsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.pipe(switchMap((params: Params) => {
-      return this.movieService.getSingleMovie(params.movieid);
+      return this.movieService.getSinglePetItem(params.movieid);
     }))
       .subscribe((newMovie: Movie) => {
         // console.log('SelectedMovie', newMovie, newMovie.reviews[0].author);
@@ -36,8 +36,8 @@ export class DetailsPageComponent implements OnInit {
       });
   }
 
-  deleteMovie(id){
-    var check = this.movieService.deleteMovie(id);
+  deletePetItem(id){
+    var check = this.movieService.deletePetItem(id);
   }
 
   btnClick(id){

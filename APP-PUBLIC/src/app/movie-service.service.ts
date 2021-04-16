@@ -13,26 +13,26 @@ export class MovieServiceService {
 
   constructor(private http: HttpClient, private router : Router) { }
 
-  getMovies(): Promise<void | Movie[]> {
+  getPetItem(): Promise<void | Movie[]> {
     return this.http.get(this.moviesUrl).toPromise()
       .then(response => response as Movie[])
       .catch(this.handleError);
   }
 
-  getSingleMovie(movieId: string): Promise<void | Movie> {
+  getSinglePetItem(movieId: string): Promise<void | Movie> {
     return this.http.get(this.moviesUrl + '/' + movieId)
       .toPromise()
       .then(response => response as Movie).catch(this.handleError);
   }
 
-  createMovie(newMovie: Movie): Promise<void | Movie> {
+  createPetItem(newMovie: Movie): Promise<void | Movie> {
     return this.http.post(this.moviesUrl, newMovie)
       .toPromise()
       .then(response => {response as Movie, this.router.navigate(['list']);})
       .catch(this.handleError);
   }
 
-  deleteMovie(movieId: string){
+  deletePetItem(movieId: string){
     return this.http.delete(this.moviesUrl + '/' + movieId)
     .toPromise()
     .then(result => {result as any, this.router.navigate(['list'])})
@@ -40,7 +40,7 @@ export class MovieServiceService {
   }
 
 
-  updateMovie(newMovie: Movie): Promise<void | Movie> {
+  updatePetItem(newMovie: Movie): Promise<void | Movie> {
     console.log("new", newMovie)
     return this.http.put(this.moviesUrl + '/' + newMovie._id, newMovie)
       .toPromise()

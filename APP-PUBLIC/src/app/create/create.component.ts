@@ -36,7 +36,7 @@ export class CreateComponent implements OnInit {
     // console.log(this.router.url);
     if(this.href != "/new"){
       this.route.params.pipe(switchMap((params: Params) => {
-        return this.movieService.getSingleMovie(params.movieid);
+        return this.movieService.getSinglePetItem(params.movieid);
       }))
         .subscribe((newMovie: Movie) => {
           this.newMovie = newMovie;
@@ -54,9 +54,9 @@ export class CreateComponent implements OnInit {
   public createEditNewMovie(newMovie: Movie): void {
     // console.log("newMovie",newMovie, this.href);
     if (this.href != "/new") {
-      this.movieService.updateMovie(newMovie);
+      this.movieService.updatePetItem(newMovie);
     } else {
-     this.movieService.createMovie(newMovie);
+     this.movieService.createPetItem(newMovie);
       //  console.log("res", newMovie);
     }
   }

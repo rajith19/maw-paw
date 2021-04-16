@@ -15,7 +15,7 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService: MovieServiceService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies()
+    this.movieService.getPetItem()
       .then((movies: Movie[]) => {
         // console.log("movies", movies)
         this.isLoading = false;

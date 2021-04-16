@@ -365,3 +365,6 @@ section.bg{
 #about{
   padding: 5rem!important;
 }
+.picsum-img-wrapper img{
+  width : 100%;
+}
