@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlMovie = require('../controllers/movies')
+const ctrlPetItem = require('../controllers/petItems')
 
 router
     .route('/movies')
-    .get(ctrlMovie.getPetItem)
-    .post(ctrlMovie.createPetItem)
+    .get(ctrlPetItem.getPetItem)
+    .post(ctrlPetItem.createPetItem)
 
 router
     .route('/movies/:movieid')
-    .get(ctrlMovie.getSinglePetItem)
-    .put(ctrlMovie.updatePetItem)
-    .delete(ctrlMovie.deletePetItem)
+    .get(ctrlPetItem.getSinglePetItem)
+    .put(ctrlPetItem.updatePetItem)
+    .delete(ctrlPetItem.deletePetItem)
 
 module.exports = router;
