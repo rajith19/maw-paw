@@ -17,7 +17,7 @@ data:any[] = ["https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618523376/cat
 
 
 
-  constructor(private photoService: MovieServiceService, config: NgbCarouselConfig) {
+  constructor( config: NgbCarouselConfig) {
     config.interval = 3000;
     config.wrap = true;
     config.keyboard = false;
