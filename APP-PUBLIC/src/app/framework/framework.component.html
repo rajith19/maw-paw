@@ -1,0 +1,37 @@
+<div id="page-container">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light">
+        <div class="container">
+            <a routerLink="" class="navbar-brand">Maw & Paw</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
+                <span class="navbar-toggler-icon">
+                </span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarMain">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item d-md-flex">
+                        <a routerLink="about" routerLinkActive="active" class="nav-link">About</a>
+
+                        <a routerLink="list" routerLinkActive="active" class="nav-link">List</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchPet(pet)">
+                    <!-- <input class="form-control mr-sm-2" (click)="showInfo()" placeholder="Search Pet.."> -->
+                    <p-autoComplete [(ngModel)]="pet" name="pet" placeholder="Start Typing..."  [suggestions]="results" (completeMethod)="search($event)" class="mr-2"></p-autoComplete>
+                    <button class="btn btn-outline-info my-2 my-sm-0" 
+                    >Search</button>
+                </form>
+                <!-- <button class="btn btn-outline-danger ml-3" (click)="showInfo()">Signin</button> -->
+            </div>
+        </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+    <p-toast [baseZIndex]="5000"></p-toast>
+    <footer id="footer">
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-12"><small>© Group Project 2021</small></div>
+            </div>
+        </div>
+    </footer>
+</div>
