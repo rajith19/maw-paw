@@ -32,8 +32,8 @@ legend {
   background-color: #f7f7f7;
 }
 
-.navbar .container{
-  max-width: 1300px!important;
+.navbar .container {
+  max-width: 1300px !important;
 }
 
 .navbar-brand {
@@ -231,19 +231,19 @@ small {
   font-size: 60px;
 }
 
-section{
+section {
   padding: 5em 15em 5em;
   text-align: center;
   background-color: #fff;
 }
 
-section.bg{
+section.bg {
   padding: 0 0 3em;
   text-align: center;
   background-color: #f7f7f7;
 }
 
-.w-25 svg{
+.w-25 svg {
   fill: #8fd3e8;
 }
 
@@ -357,14 +357,28 @@ section.bg{
   -o-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }
-.trans{
-  background: rgba(0,0,0,0.7);
+.trans {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* about */
-#about{
-  padding: 5rem!important;
+#about {
+  padding: 5rem !important;
 }
-.picsum-img-wrapper img{
-  width : 100%;
+
+#team {
+  padding: 0 5rem 5rem !important;
+}
+
+.copyright {
+  color: #fff;
+  font-weight: 600;
+}
+
+#team .imgSize {
+  height: 230px;
+}
+
+.picsum-img-wrapper img {
+  width: 100%;
 }
