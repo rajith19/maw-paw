@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const petItemSchema = new mongoose.Schema({
+const petSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -34,4 +34,4 @@ const petItemSchema = new mongoose.Schema({
 });
 
 
-mongoose.model('PetItem', petItemSchema);
+mongoose.model('pet', petSchema);

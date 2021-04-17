@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlPetItem = require('../controllers/petItems')
+const ctrlPetItem = require('../controllers/pet')
 
 router
     .route('/petitems')
