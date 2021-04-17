@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const PetItem = mongoose.model('PetItem');
+const Pet = mongoose.model('pet');
 
 
 const getSinglePetItem = function (req, res) {
-    PetItem.findById(req.params.petItemid)
+    Pet.findById(req.params.petItemid)
         .exec((err, petItemData) => {
             if (!petItemData) {
                 return res
@@ -24,19 +24,21 @@ const getSinglePetItem = function (req, res) {
 };
 const getPetItems = function (req, res) {
     console.log("req", req.body);
-    PetItem.find().exec(function (err, petItemData) {
+    console.log("Mongoose: ", Pet.collection.collectionName);
+
+    Pet.find().exec(function (err, petItemData) {
         if (err) {
             res.status(400).json(err);
             return;
         }
         res.status(200).json(petItemData);
-        console.log("pet", petItemData);
+        console.log("pet: ", petItemData);
     });
 };
 
 const createPetItem = function (req, res) {
     console.log("req", req.body)
-    PetItem.create({
+    Pet.create({
         name: req.body.name,
         image: req.body.image,
         ingredients: req.body.ingredients.split(","),
@@ -65,7 +67,7 @@ const updatePetItem = function (req, res) {
         res.status(404).json({ "message": "Not found, petItemid is required" })
         return;
     }
-    PetItem.findById(req.params.petItemid)
+    Pet.findById(req.params.petItemid)
         .exec((err, petItemData) => {
             if (!petItemData) {
                 res.status(404).json({ "message": "petItemid not found" });
@@ -100,7 +102,7 @@ const updatePetItem = function (req, res) {
 const deletePetItem = function (req, res) {
     const petItemid = req.params.petItemid;
     if (petItemid) {
-        PetItem
+        Pet
             .findByIdAndRemove(petItemid)
             .exec((err, petItemData) => {
                 if (err) {
