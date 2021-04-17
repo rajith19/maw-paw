@@ -11,10 +11,10 @@ export class PetListComponent implements OnInit {
 
   pets: Pet[]
   public isLoading: boolean = true;
-  constructor(private movieService: PetServiceService) { }
+  constructor(private petitemService: PetServiceService) { }
 
   ngOnInit(): void {
-    this.movieService.getPetItems()
+    this.petitemService.getPetItems()
       .then((pets: Pet[]) => {
         // console.log("pets", pets)
         this.isLoading = false;

@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 })
 export class DetailsPageComponent implements OnInit {
 
-  constructor(private movieService: PetServiceService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private petitemService: PetServiceService, private route: ActivatedRoute, private router : Router) { }
   public isLoading: boolean = true;
 
   newPet: Pet;
@@ -28,7 +28,7 @@ export class DetailsPageComponent implements OnInit {
   };
   ngOnInit(): void {
     this.route.params.pipe(switchMap((params: Params) => {
-      return this.movieService.getSinglePetItem(params.movieid);
+      return this.petitemService.getSinglePetItem(params.petitemid);
     }))
       .subscribe((newPet: Pet) => {
         // console.log('SelectedPet', newPet, newPet.reviews[0].author);
@@ -45,7 +45,7 @@ export class DetailsPageComponent implements OnInit {
   }
 
   deletePetItem(id){
-    var check = this.movieService.deletePetItem(id);
+    var check = this.petitemService.deletePetItem(id);
   }
 
   btnClick(id){

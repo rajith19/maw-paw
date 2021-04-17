@@ -33,7 +33,7 @@ data:any[] = ["https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618523376/cat
   }
 
   public pageContent = {
-    title: "WE ARE MOVIE BUFFS"
+    title: "We Have Everything Your Pet Needs."
   };
 
 

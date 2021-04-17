@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { FrameworkComponent } from './framework/framework.component';
-// import { MovieListComponent } from './movie-list/movie-list.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -28,7 +27,6 @@ import { PetListComponent } from './pet-list/pet-list.component';
     HomepageComponent,
     AboutComponent,
     FrameworkComponent,
-    // MovieListComponent,
     CreateComponent,
     DetailsPageComponent,
     PageHeaderComponent,
@@ -53,7 +51,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
         component: PetListComponent
       },
       {
-        path: 'list/:movieid',
+        path: 'list/:petitemid',
         component: DetailsPageComponent
       },
       {
@@ -61,7 +59,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
         component: CreateComponent
       },
       {
-        path: 'edit/:movieid',
+        path: 'edit/:petitemid',
         component: CreateComponent
       }
     ]),

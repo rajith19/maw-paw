@@ -18,15 +18,14 @@ export class FrameworkComponent implements OnInit {
 
   data: any[];
 
-  constructor(private messageService: MessageService, private movieService: PetServiceService, private router: Router) { }
+  constructor(private messageService: MessageService, private petitemService: PetServiceService, private router: Router) { }
 
   petItemId: any[];
   public pet: string = "";
 
   ngOnInit(): void {
-    this.movieService.getPetItems()
+    this.petitemService.getPetItems()
       .then((pets: Pet[]) => {
-        console.log("movies", pets)
         this.data = pets.map(pet => {
           return pet;
         });
@@ -34,6 +33,12 @@ export class FrameworkComponent implements OnInit {
   }
 
   search(event) {
+    this.petitemService.getPetItems()
+      .then((pets: Pet[]) => {
+        this.data = pets.map(pet => {
+          return pet;
+        });
+      });
     if (event.query == "") {
       this.results = this.data.map(e => {
         return e.name

@@ -2,9 +2,9 @@
     <div class="container py-5">
         <div class="text-right">
             <button class="btn btn-info height mr-2" type="button" data-toggle="modal"
-                data-target="#exampleModal">Delete Movie</button>
+                data-target="#exampleModal">Delete Item</button>
             <button class="btn btn-info height mr-2" type="button" (click)="btnClick(newPet?._id);">Edit
-                Movie</button>
+                Item</button>
             <a routerLink="/list/">Go Back</a>
         </div>
 
@@ -50,7 +50,7 @@
                     <div class="modal-body">Do you really want to delete this item?</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                        <button class="btn btn-danger delete-movie" data-dismiss="modal" type="button"
+                        <button class="btn btn-danger delete-petitem" data-dismiss="modal" type="button"
                             (click)="deletePetItem(newPet?._id)">Delete</button>
                     </div>
                 </div>

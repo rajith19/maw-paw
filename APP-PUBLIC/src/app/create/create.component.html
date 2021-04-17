@@ -3,9 +3,9 @@
         <div class="row d-flex justify-content-center">
             <div class="col-8">
 
-                <form ngNativeValidate id="addMovie" name="myForm" (ngSubmit)="createEditNewPet(newPet)">
+                <form ngNativeValidate id="addPet" name="myForm" (ngSubmit)="createEditNewPet(newPet)">
                     <div class="form-group row">
-                        <label class="col-10 col-sm-3 col-form-label" for="name">Movie
+                        <label class="col-10 col-sm-3 col-form-label" for="name">Item
                             Name</label>
                         <div class="col-12 col-sm-9">
                             <input [(ngModel)]="newPet.name" class="form-control" id="name" name="name" required>
