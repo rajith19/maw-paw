@@ -56,9 +56,18 @@ export class FrameworkComponent implements OnInit {
   public searchPet(pet): void {
 
     this.petItemId = this.data.filter(e => e.name === pet);
-    this.router.navigateByUrl('/list/' + this.petItemId[0]._id);
-    this.pet = "";
+    
+    if (this.petItemId.length != 0) {
+      this.router.navigateByUrl('/list/' + this.petItemId[0]._id);
+      this.pet = "";
+    }else{
+      this.showInfo();
+    }
   }
+
+  showInfo() {
+    this.messageService.add({severity:'info', summary: 'Info', detail: 'Item not found'});
+}
 
 
 }
