@@ -16,13 +16,11 @@
                         <a routerLink="list" routerLinkActive="active" class="nav-link">List</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchPet(pet)">
-                    <!-- <input class="form-control mr-sm-2" (click)="showInfo()" placeholder="Search Pet.."> -->
+                <form class="form-inline my-2 my-lg-0" (keyup.enter)="searchPet(pet)" (ngSubmit)="searchPet(pet)">
                     <p-autoComplete [(ngModel)]="pet" name="pet" placeholder="Start Typing..."  [suggestions]="results" (completeMethod)="search($event)" class="mr-2"></p-autoComplete>
                     <button class="btn btn-outline-info my-2 my-sm-0" 
                     >Search</button>
                 </form>
-                <!-- <button class="btn btn-outline-danger ml-3" (click)="showInfo()">Signin</button> -->
             </div>
         </div>
     </nav>

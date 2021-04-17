@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
 import { Pet } from '../pet';
 import { PetServiceService } from "../pet-service.service";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-framework',
   templateUrl: './framework.component.html',
@@ -14,24 +13,17 @@ import {Router} from "@angular/router";
 export class FrameworkComponent implements OnInit {
 
 
-  results: string[];
+  results: any[];
 
-  eventsQuery: string;
 
-  data: any[]
-  // = [
-  //   { label: 'Berlin', value: 'Berlin' },
-  //   { label: 'Frankfurt', value: 'Frankfurt' },
-  //   { label: 'Hamburg', value: 'Hamburg' },
-  //   { label: 'Munich', value: 'Munich' }
-  // ]
-  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig, private movieService: PetServiceService, private router : Router) { }
+  data: any[];
+
+  constructor(private messageService: MessageService, private movieService: PetServiceService, private router: Router) { }
 
   petItemId: any[];
   public pet: string = "";
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
     this.movieService.getPetItems()
       .then((pets: Pet[]) => {
         console.log("movies", pets)
@@ -42,27 +34,24 @@ export class FrameworkComponent implements OnInit {
   }
 
   search(event) {
-    console.log(event.query);
-    this.eventsQuery = event.query
-    this.results = this.data.map(e => {
-      return e.name
-    });
-    
-
-  }
-
-
-  showInfo() {
-    this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Under Maintenance' });
+    if (event.query == "") {
+      this.results = this.data.map(e => {
+        return e.name
+      });
+    } else {
+      var searchKey = event.query.toLowerCase();
+      var newData = this.data.filter(str => str.name.toLowerCase().indexOf(searchKey) > -1);
+      this.results = newData.map(e => {
+        return e.name
+      });
+    }
   }
 
 
   public searchPet(pet): void {
 
-    this.petItemId = this.data.filter(e =>e.name === pet);
-    console.log("this.petItemId", this.petItemId[0]._id);
-    console.log("pet", pet);
-    this.router.navigateByUrl('/list/'+this.petItemId[0]._id);
+    this.petItemId = this.data.filter(e => e.name === pet);
+    this.router.navigateByUrl('/list/' + this.petItemId[0]._id);
     this.pet = "";
   }
 

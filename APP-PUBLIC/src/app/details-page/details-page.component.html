@@ -3,7 +3,7 @@
         <div class="text-right">
             <button class="btn btn-info height mr-2" type="button" data-toggle="modal"
                 data-target="#exampleModal">Delete Movie</button>
-            <button class="btn btn-info height mr-2" type="button" (click)="btnClick(newMovie?._id);">Edit
+            <button class="btn btn-info height mr-2" type="button" (click)="btnClick(newPet?._id);">Edit
                 Movie</button>
             <a routerLink="/list/">Go Back</a>
         </div>
@@ -15,22 +15,24 @@
                 </div>
                 <div class="d-flex">
                     <div class="mr-5">
-                        <img src="{{newMovie?.cardImage}}" width="300">
+                        <img src="{{newPet?.image}}" width="300">
                     </div>
                     <div class="d-inline-flex align-items-start flex-column">
-                        <h1>{{newMovie?.name}}</h1>
+                        <h1>{{newPet?.name}}</h1>
                         <div class="d-flex">
                             <span class="badge badge-danger text-center mr-2 mb-2"
-                                *ngFor="let ingredient of newMovie?.ingredients">{{ingredient}}</span>
+                                *ngFor="let ingredient of newPet?.ingredients">{{ingredient}}</span>
                         </div>
-                        <h2> ${{newMovie?.price}}</h2>
+                        <h2> ${{newPet?.price}}</h2>
                         <div class="d-flex">
-                            <app-rating-stars [rating]=newMovie?.rating></app-rating-stars>
+                            <app-rating-stars [rating]=newPet?.rating></app-rating-stars>
                         </div>
+                        <!-- <p>{{newPet?.isOnSale}}</p> -->
+                        <p>{{newPet?.description}}</p>
                         <!-- <h1>Review by admin</h1>
-                        <h2>{{newMovie?.reviews[0].author}}</h2>
+                        <h2>{{newPet?.reviews[0].author}}</h2>
                      
-                        <h2>{{newMovie?.reviews[0].reviewText}}</h2> -->
+                        <h2>{{newPet?.reviews[0].reviewText}}</h2> -->
                     </div>
                 </div>
             </div>
@@ -40,7 +42,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete {{newMovie?.name}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Delete {{newPet?.name}}</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -49,7 +51,7 @@
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
                         <button class="btn btn-danger delete-movie" data-dismiss="modal" type="button"
-                            (click)="deletePetItem(newMovie?._id)">Delete</button>
+                            (click)="deletePetItem(newPet?._id)">Delete</button>
                     </div>
                 </div>
             </div>

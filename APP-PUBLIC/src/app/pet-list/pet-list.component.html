@@ -1,4 +1,4 @@
-<div class="contentSpacing">
+<<div class="contentSpacing">
   <div class="container py-5" id="noUnderline">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h1 class="d-inline">Pet Item List</h1>
@@ -12,24 +12,24 @@
     <div class="d-sm-flex flex-wrap justify-content-evenly">
       <div
         class="card mr-sm-4 mb-4 position-relative onHover-shadow flex-basis"
-        *ngFor="let movie of movies"
+        *ngFor="let pet of pets"
       >
-        <a routerLink="/list/{{ movie._id }}">
+        <a routerLink="/list/{{ pet._id }}">
           <div class="card-block">
-            <img
+            <!-- <img
               class="position-absolute"
               src="{{
-                movie.upcoming == true ? '/assets/images/soon.png' : ''
+                pet.upcoming == true ? '/assets/images/soon.png' : ''
               }}"
-            />
-            <img class="imgSize rounded" src="{{ movie.cardImage }}" />
-            <h3 class="text-center pt-2">{{ movie.name }}</h3>
+            /> -->
+            <img class="imgSize rounded" src="{{ pet.image }}" />
+            <h3 class="text-center pt-2">{{ pet.name }}</h3>
             <div class="d-flex justify-content-center flex-wrap">
-              <span
+              <!-- <span
                 class="badge badge-danger text-center mr-2 mb-2"
-                *ngFor="let genre of movie.genres"
-                >{{ genre }}</span
-              >
+                *ngFor="let genre of pet.ingredu"
+                >{{ genre }}</span -->
+               <p>${{pet.price}}</p> 
             </div>
           </div>
         </a>

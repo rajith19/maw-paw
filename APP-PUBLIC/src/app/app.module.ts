@@ -50,7 +50,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
       },
       {
         path: 'list',
-        // component: MovieListComponent
+        component: PetListComponent
       },
       {
         path: 'list/:movieid',
