@@ -13,7 +13,7 @@ export class MovieServiceService {
 
   constructor(private http: HttpClient, private router : Router) { }
 
-  getPetItem(): Promise<void | Movie[]> {
+  getPetItems(): Promise<void | Movie[]> {
     return this.http.get(this.moviesUrl).toPromise()
       .then(response => response as Movie[])
       .catch(this.handleError);
