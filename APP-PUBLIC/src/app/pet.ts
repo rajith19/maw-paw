@@ -7,4 +7,5 @@ export class Pet {
     price: number;
     description: string;
     rating: number;
+    about_item : string[];
 }

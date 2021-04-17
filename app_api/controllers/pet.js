@@ -41,7 +41,9 @@ const createPetItem = function (req, res) {
         price: req.body.price,
         isOnSale: req.body.isOnSale,
         description:req.body.description,
-        rating:req.body.rating
+        rating:req.body.rating,
+        about_item: req.body.about_item.toString()
+        .split(","),
     },
         (err, petItemData) => {
             if (err) {
@@ -77,7 +79,8 @@ const updatePetItem = function (req, res) {
             petItemData.price = req.body.price,
             petItemData.isOnSale = req.body.isOnSale,
             petItemData.description=req.body.description,
-            petItemData.rating=req.body.rating
+            petItemData.rating=req.body.rating,
+            petItemData.about_item= req.body.about_item.toString().split(",")
             petItemData.save((err, petItemData) => {
                 if (err) {
                     res.status(404).json(err);

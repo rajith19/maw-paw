@@ -22,7 +22,8 @@ export class CreateComponent implements OnInit {
     isOnSale: false,
     price: 0,
     description: "",
-    rating: 0
+    rating: 0,
+    about_item: []
 
   }
   constructor(private petService: PetServiceService, private route: ActivatedRoute, private router: Router) { }
@@ -34,7 +35,8 @@ export class CreateComponent implements OnInit {
     isOnSale: false,
     price: 0,
     description: "",
-    rating: 0
+    rating: 0,
+    about_item: []
   };
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class CreateComponent implements OnInit {
           this.pageContent.price = newPet.price;
           this.pageContent.description = newPet.description;
           this.pageContent.rating = newPet.rating;
+          this.pageContent.about_item = newPet.about_item;
         });
     }
     

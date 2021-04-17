@@ -9,9 +9,9 @@
     <div class="d-sm-flex flex-wrap justify-content-center">
       <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
     </div>
-    <div class="d-sm-flex flex-wrap justify-content-evenly">
+    <div class="d-sm-flex flex-wrap justify-content-start">
       <div
-        class="card mr-sm-4 mb-4 position-relative onHover-shadow flex-basis"
+        class="card mb-4 ml-mr position-relative onHover-shadow flex-basis"
         *ngFor="let pet of pets"
       >
         <a routerLink="/list/{{ pet._id }}">

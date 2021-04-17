@@ -30,7 +30,11 @@ const petSchema = new mongoose.Schema({
         type: Number,
         default: true,
         required: true
-    }
+    },
+    about_item: { 
+        type: [String], 
+        required: true 
+    },
 });
 
 mongoose.model('pet', petSchema);

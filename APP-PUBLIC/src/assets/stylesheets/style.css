@@ -390,3 +390,8 @@ section.bg {
 #footer .container{
   margin: 1rem auto;
 }
+
+.ml-mr{
+  margin-left: 0.86rem;
+  margin-right: 0.86rem;
+}
