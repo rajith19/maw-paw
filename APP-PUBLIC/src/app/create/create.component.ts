@@ -18,7 +18,7 @@ export class CreateComponent implements OnInit {
     _id: "",
     name: "",
     cardImage: "",
-    genres: [],
+    ingredients: [],
     upcoming: true,
     price: 0,
     reviews: [{
@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
   }
   constructor(private movieService: MovieServiceService, private route: ActivatedRoute, private router: Router) { }
 
-  pageContent = { genres: [], cardImage: "", name: "", price: 0, upcoming: false, reviews: [] };
+  pageContent = { ingredients: [], cardImage: "", name: "", price: 0, upcoming: false, reviews: [] };
 
   ngOnInit(): void {
     this.href = this.router.url;
@@ -40,7 +40,7 @@ export class CreateComponent implements OnInit {
       }))
         .subscribe((newMovie: Movie) => {
           this.newMovie = newMovie;
-          this.pageContent.genres = newMovie.genres;
+          this.pageContent.ingredients = newMovie.ingredients;
           this.pageContent.cardImage = newMovie.cardImage;
           this.pageContent.name = newMovie.name;
           this.pageContent.price = newMovie.price;
