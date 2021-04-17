@@ -3,7 +3,7 @@ const Pet = mongoose.model('pet');
 
 
 const getSinglePetItem = function (req, res) {
-    Pet.findById(req.params.petItemid)
+    Pet.findById(req.params.petitemid)
         .exec((err, petItemData) => {
             if (!petItemData) {
                 return res
@@ -20,19 +20,14 @@ const getSinglePetItem = function (req, res) {
                 .status(200)
                 .json(petItemData);
         });
-
 };
 const getPetItems = function (req, res) {
-    console.log("req", req.body);
-    console.log("Mongoose: ", Pet.collection.collectionName);
-
     Pet.find().exec(function (err, petItemData) {
         if (err) {
             res.status(400).json(err);
             return;
         }
         res.status(200).json(petItemData);
-        console.log("pet: ", petItemData);
     });
 };
 
