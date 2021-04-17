@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Pet = mongoose.model('pet');
 
-
 const getSinglePetItem = function (req, res) {
     Pet.findById(req.params.petitemid)
         .exec((err, petItemData) => {
@@ -21,6 +20,7 @@ const getSinglePetItem = function (req, res) {
                 .json(petItemData);
         });
 };
+
 const getPetItems = function (req, res) {
     Pet.find().exec(function (err, petItemData) {
         if (err) {
@@ -32,11 +32,11 @@ const getPetItems = function (req, res) {
 };
 
 const createPetItem = function (req, res) {
-    console.log("req", req.body)
     Pet.create({
         name: req.body.name,
         image: req.body.image,
-        ingredients: req.body.ingredients.split(","),
+        ingredients: req.body.ingredients.toString()
+        .split(","),
         upcoming: req.body.upcoming,
         price: req.body.price,
         isOnSale: req.body.isOnSale,
@@ -54,7 +54,6 @@ const createPetItem = function (req, res) {
                     .json(petItemData);
             }
         });
-
 };
 
 const updatePetItem = function (req, res) {
@@ -73,7 +72,6 @@ const updatePetItem = function (req, res) {
             }
 
             // console.log("req.body.genres", req.body.genres.toString().split(','))
-            petItemData.name = req.body.name,
             petItemData.name = req.body.name,
             petItemData.image = req.body.image,
             petItemData.ingredients= req.body.ingredients.split(","),
