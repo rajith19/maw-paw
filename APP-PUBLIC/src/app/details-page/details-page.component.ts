@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../movie';
-import { MovieServiceService } from '../movie-service.service';
+import { Pet } from '../pet';
+import { PetServiceService } from '../pet-service.service';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Params } from '@angular/router';
 import {Router} from "@angular/router";
@@ -9,31 +9,38 @@ import {Router} from "@angular/router";
   selector: 'app-details-page',
   templateUrl: './details-page.component.html',
   styleUrls: ['./details-page.component.css'],
-  providers: [MovieServiceService]
+  providers: [PetServiceService]
 })
 export class DetailsPageComponent implements OnInit {
 
-  constructor(private movieService: MovieServiceService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private movieService: PetServiceService, private route: ActivatedRoute, private router : Router) { }
   public isLoading: boolean = true;
 
-  newMovie: Movie;
-  pageContent = { ingredients: [], rating: 4, cardImage: "", name: "", price: 0,  upcoming: true,  reviews : [] };
-
+  newPet: Pet;
+  pageContent = { 
+    name: "",
+    image: "",
+    ingredients : [],
+    isOnSale: false,
+    price: 0,
+    description: "",
+    rating: 0
+  };
   ngOnInit(): void {
     this.route.params.pipe(switchMap((params: Params) => {
       return this.movieService.getSinglePetItem(params.movieid);
     }))
-      .subscribe((newMovie: Movie) => {
-        // console.log('SelectedMovie', newMovie, newMovie.reviews[0].author);
+      .subscribe((newPet: Pet) => {
+        // console.log('SelectedPet', newPet, newPet.reviews[0].author);
         this.isLoading = false;
-        this.newMovie = newMovie;
-        this.pageContent.ingredients = newMovie.ingredients;
-        this.pageContent.cardImage = newMovie.cardImage;
-        this.pageContent.name = newMovie.name;
-        this.pageContent.price = newMovie.price;
-        this.pageContent.upcoming = newMovie.upcoming;
-        this.pageContent.reviews = newMovie.reviews;
-        this.pageContent.rating = newMovie.rating;
+        this.newPet = newPet;
+        this.pageContent.name = newPet.name;
+          this.pageContent.image = newPet.image;
+          this.pageContent.ingredients = newPet.ingredients;
+          this.pageContent.isOnSale = newPet.isOnSale;
+          this.pageContent.price = newPet.price;
+          this.pageContent.description = newPet.description;
+          this.pageContent.rating = newPet.rating;
       });
   }
 

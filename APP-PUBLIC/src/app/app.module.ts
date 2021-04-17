@@ -15,23 +15,25 @@ import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { FrameworkComponent } from './framework/framework.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
+// import { MovieListComponent } from './movie-list/movie-list.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { RatingStarsComponent } from './rating-stars/rating-stars.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PetListComponent } from './pet-list/pet-list.component';
 
 @NgModule({
   declarations: [
     HomepageComponent,
     AboutComponent,
     FrameworkComponent,
-    MovieListComponent,
+    // MovieListComponent,
     CreateComponent,
     DetailsPageComponent,
     PageHeaderComponent,
     RatingStarsComponent,
+    PetListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       },
       {
         path: 'list',
-        component: MovieListComponent
+        // component: MovieListComponent
       },
       {
         path: 'list/:movieid',

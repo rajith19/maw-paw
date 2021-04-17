@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../movie';
-import { MovieServiceService } from "../movie-service.service";
+import { Pet } from '../pet';
+import { PetServiceService } from "../pet-service.service";
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css'],
-  providers:[MovieServiceService]
+  providers:[PetServiceService]
 })
-export class MovieListComponent implements OnInit {
+export class PetListComponent implements OnInit {
 
-  movies: Movie[]
+  movies: Pet[]
   public isLoading: boolean = true;
-  constructor(private movieService: MovieServiceService) { }
+  constructor(private movieService: PetServiceService) { }
 
   ngOnInit(): void {
     this.movieService.getPetItems()
-      .then((movies: Movie[]) => {
+      .then((movies: Pet[]) => {
         // console.log("movies", movies)
         this.isLoading = false;
         this.movies = movies.map(movie => {

@@ -33,5 +33,4 @@ const petSchema = new mongoose.Schema({
     }
 });
 
-
 mongoose.model('pet', petSchema);

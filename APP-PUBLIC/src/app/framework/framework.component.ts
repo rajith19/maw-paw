@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
-import { Movie } from '../movie';
-import { MovieServiceService } from "../movie-service.service";
+import { Pet } from '../pet';
+import { PetServiceService } from "../pet-service.service";
 import {Router} from "@angular/router";
 @Component({
   selector: 'app-framework',
   templateUrl: './framework.component.html',
   styleUrls: ['./framework.component.css'],
-  providers: [MessageService, MovieServiceService]
+  providers: [MessageService, PetServiceService]
 
 })
 export class FrameworkComponent implements OnInit {
@@ -25,7 +25,7 @@ export class FrameworkComponent implements OnInit {
   //   { label: 'Hamburg', value: 'Hamburg' },
   //   { label: 'Munich', value: 'Munich' }
   // ]
-  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig, private movieService: MovieServiceService, private router : Router) { }
+  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig, private movieService: PetServiceService, private router : Router) { }
 
   petItemId: any[];
   public pet: string = "";
@@ -33,10 +33,10 @@ export class FrameworkComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.movieService.getPetItems()
-      .then((movies: Movie[]) => {
-        console.log("movies", movies)
-        this.data = movies.map(movie => {
-          return movie;
+      .then((pets: Pet[]) => {
+        console.log("movies", pets)
+        this.data = pets.map(pet => {
+          return pet;
         });
       });
   }

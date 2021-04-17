@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieServiceService } from '../movie-service.service';
+import { PetServiceService } from '../pet-service.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
-  providers: [MovieServiceService, NgbCarouselConfig]
+  providers: [PetServiceService, NgbCarouselConfig]
 })
 export class HomepageComponent implements OnInit {
 

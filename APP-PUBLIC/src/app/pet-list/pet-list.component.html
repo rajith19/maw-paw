@@ -1,0 +1,39 @@
+<div class="contentSpacing">
+  <div class="container py-5" id="noUnderline">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="d-inline">Pet Item List</h1>
+      <a routerLink="/new">
+        <button class="btn btn-info" type="button">Create Pet Item</button>
+      </a>
+    </div>
+    <div class="d-sm-flex flex-wrap justify-content-center">
+      <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+    </div>
+    <div class="d-sm-flex flex-wrap justify-content-evenly">
+      <div
+        class="card mr-sm-4 mb-4 position-relative onHover-shadow flex-basis"
+        *ngFor="let movie of movies"
+      >
+        <a routerLink="/list/{{ movie._id }}">
+          <div class="card-block">
+            <img
+              class="position-absolute"
+              src="{{
+                movie.upcoming == true ? '/assets/images/soon.png' : ''
+              }}"
+            />
+            <img class="imgSize rounded" src="{{ movie.cardImage }}" />
+            <h3 class="text-center pt-2">{{ movie.name }}</h3>
+            <div class="d-flex justify-content-center flex-wrap">
+              <span
+                class="badge badge-danger text-center mr-2 mb-2"
+                *ngFor="let genre of movie.genres"
+                >{{ genre }}</span
+              >
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
