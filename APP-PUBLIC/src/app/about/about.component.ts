@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit {
   }
 
   public pageContent = {
-    title : "About My Site"
+    title : "About Us"
   }
 
 }
