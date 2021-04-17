@@ -4,12 +4,12 @@ const router = express.Router();
 const ctrlPetItem = require('../controllers/petItems')
 
 router
-    .route('/movies')
-    .get(ctrlPetItem.getPetItem)
+    .route('/petitems')
+    .get(ctrlPetItem.getPetItems)
     .post(ctrlPetItem.createPetItem)
 
 router
-    .route('/movies/:movieid')
+    .route('/petitems/:petitemid')
     .get(ctrlPetItem.getSinglePetItem)
     .put(ctrlPetItem.updatePetItem)
     .delete(ctrlPetItem.deletePetItem)

@@ -22,13 +22,15 @@ const getSinglePetItem = function (req, res) {
         });
 
 };
-const getPetItem = function (req, res) {
+const getPetItems = function (req, res) {
+    console.log("req", req.body);
     PetItem.find().exec(function (err, petItemData) {
         if (err) {
             res.status(400).json(err);
             return;
         }
         res.status(200).json(petItemData);
+        console.log("pet", petItemData);
     });
 };
 
@@ -36,15 +38,13 @@ const createPetItem = function (req, res) {
     console.log("req", req.body)
     PetItem.create({
         name: req.body.name,
-        cardImage: req.body.cardImage,
-        genres: req.body.genres.split(","),
+        image: req.body.image,
+        ingredients: req.body.ingredients.split(","),
         upcoming: req.body.upcoming,
         price: req.body.price,
-        reviews: {
-            author: req.body.reviews[0].author,
-            rating: req.body.reviews[0].rating,
-            reviewText: req.body.reviews[0].reviewText,
-        }
+        isOnSale: req.body.isOnSale,
+        description:req.body.description,
+        rating:req.body.rating
     },
         (err, petItemData) => {
             if (err) {
@@ -77,15 +77,15 @@ const updatePetItem = function (req, res) {
 
             // console.log("req.body.genres", req.body.genres.toString().split(','))
             petItemData.name = req.body.name,
-                petItemData.cardImage = req.body.cardImage,
-                petItemData.genres = req.body.genres.toString().split(','),
-                petItemData.upcoming = req.body.upcoming,
-                petItemData.price = req.body.price,
-                petItemData.reviews= {
-                    author: req.body.reviews[0].author,
-                    rating: req.body.reviews[0].rating,
-                    reviewText: req.body.reviews[0].reviewText,
-                }
+            petItemData.name = req.body.name,
+            petItemData.image = req.body.image,
+            petItemData.ingredients= req.body.ingredients.split(","),
+            petItemData.upcoming = req.body.upcoming,
+            petItemData.price = req.body.price,
+            petItemData.isOnSale = req.body.isOnSale,
+            petItemData.description=req.body.description,
+            petItemData.rating=req.body.rating
+               
                 petItemData.save((err, petItemData) => {
                     if (err) {
                         res.status(404).json(err);
@@ -121,7 +121,7 @@ const deletePetItem = function (req, res) {
 };
 
 module.exports = {
-    getPetItem,
+    getPetItems,
     createPetItem,
     getSinglePetItem,
     updatePetItem,

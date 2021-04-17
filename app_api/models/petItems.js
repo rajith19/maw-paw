@@ -1,34 +1,35 @@
 const mongoose = require('mongoose');
 
-const reviewSchema = new mongoose.Schema({
-    author: { type: String, required: true },
-    rating: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 5
-    },
-    reviewText: String,
-    createdOn: { type: Date, default: Date.now() }
-});
-
-
-
 const petItemSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    cardImage: String,
-    genres: { type: [String], required: true },
-    reviews: [reviewSchema],
-    upcoming: {
+    image: {
+        type : String, 
+        required :true
+    },
+    ingredients: { 
+        type: [String], 
+        required: true 
+    },
+    isOnSale: {
         type: Boolean,
         required: true
     },
     price: {
         type: Number,
-        default: 0
+        default: 0,
+        required: true
+    },
+    description : {
+        type: String,
+        required : true
+    },
+    rating: {
+        type: Number,
+        default: true,
+        required: true
     }
 });
 
