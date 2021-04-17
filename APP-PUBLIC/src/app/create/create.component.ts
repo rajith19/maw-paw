@@ -22,9 +22,8 @@ export class CreateComponent implements OnInit {
     isOnSale: false,
     price: 0,
     description: "",
-    rating: 0,
-    about_item: []
-
+    rating: 5,
+    about_item: [],
   }
   constructor(private petService: PetServiceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -35,7 +34,7 @@ export class CreateComponent implements OnInit {
     isOnSale: false,
     price: 0,
     description: "",
-    rating: 0,
+    rating: 5,
     about_item: []
   };
 

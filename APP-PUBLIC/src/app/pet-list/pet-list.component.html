@@ -24,16 +24,15 @@
             /> -->
             <img class="imgSize rounded" src="{{ pet.image }}" />
             <h3 class="text-center pt-2">{{ pet.name }}</h3>
+            <div class="d-flex justify-content-center">
+              <app-rating-stars [rating]=pet.rating></app-rating-stars>
+            </div>
             <div class="d-flex justify-content-center flex-wrap">
-              <!-- <span
-                class="badge badge-danger text-center mr-2 mb-2"
-                *ngFor="let genre of pet.ingredu"
-                >{{ genre }}</span -->
-               <p>${{pet.price}}</p> 
+              <p>${{pet.price}}</p>
             </div>
           </div>
         </a>
       </div>
     </div>
   </div>
-</div>
+  </div>
