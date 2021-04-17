@@ -1,9 +1,9 @@
 <div class="contentSpacing">
     <div class="container py-5">
         <div class="text-right">
-            <button class="btn btn-danger height mr-2" type="button" data-toggle="modal"
+            <button class="btn btn-info height mr-2" type="button" data-toggle="modal"
                 data-target="#exampleModal">Delete Movie</button>
-            <button class="btn btn-danger height mr-2" type="button" (click)="btnClick(newMovie?._id);">Edit
+            <button class="btn btn-info height mr-2" type="button" (click)="btnClick(newMovie?._id);">Edit
                 Movie</button>
             <a routerLink="/list/">Go Back</a>
         </div>
@@ -24,11 +24,12 @@
                                 *ngFor="let ingredient of newMovie?.ingredients">{{ingredient}}</span>
                         </div>
                         <h2> ${{newMovie?.price}}</h2>
+                        <div class="d-flex">
+                            <app-rating-stars [rating]=newMovie?.rating></app-rating-stars>
+                        </div>
                         <!-- <h1>Review by admin</h1>
                         <h2>{{newMovie?.reviews[0].author}}</h2>
-                        <div class="d-flex">
-                            <app-rating-stars [rating]=newMovie?.reviews[0].rating></app-rating-stars>
-                        </div>
+                     
                         <h2>{{newMovie?.reviews[0].reviewText}}</h2> -->
                     </div>
                 </div>

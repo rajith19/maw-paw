@@ -5,6 +5,7 @@ export class Movie {
     ingredients : string[];
     upcoming:boolean;
     price:number;
+    rating: number;
     reviews : [{
         author: string;
         rating: number;

@@ -17,7 +17,7 @@ export class DetailsPageComponent implements OnInit {
   public isLoading: boolean = true;
 
   newMovie: Movie;
-  pageContent = { ingredients: [], cardImage: "", name: "", price: 0,  upcoming: true,  reviews : [] };
+  pageContent = { ingredients: [], rating: 4, cardImage: "", name: "", price: 0,  upcoming: true,  reviews : [] };
 
   ngOnInit(): void {
     this.route.params.pipe(switchMap((params: Params) => {
@@ -32,7 +32,8 @@ export class DetailsPageComponent implements OnInit {
         this.pageContent.name = newMovie.name;
         this.pageContent.price = newMovie.price;
         this.pageContent.upcoming = newMovie.upcoming;
-        this.pageContent.reviews = newMovie.reviews
+        this.pageContent.reviews = newMovie.reviews;
+        this.pageContent.rating = newMovie.rating;
       });
   }
 
