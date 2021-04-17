@@ -17,7 +17,7 @@ export class DetailsPageComponent implements OnInit {
   public isLoading: boolean = true;
 
   newMovie: Movie;
-  pageContent = { genres: [], cardImage: "", name: "", price: 0,  upcoming: true,  reviews : [] };
+  pageContent = { ingredients: [], cardImage: "", name: "", price: 0,  upcoming: true,  reviews : [] };
 
   ngOnInit(): void {
     this.route.params.pipe(switchMap((params: Params) => {
@@ -27,7 +27,7 @@ export class DetailsPageComponent implements OnInit {
         // console.log('SelectedMovie', newMovie, newMovie.reviews[0].author);
         this.isLoading = false;
         this.newMovie = newMovie;
-        this.pageContent.genres = newMovie.genres;
+        this.pageContent.ingredients = newMovie.ingredients;
         this.pageContent.cardImage = newMovie.cardImage;
         this.pageContent.name = newMovie.name;
         this.pageContent.price = newMovie.price;
