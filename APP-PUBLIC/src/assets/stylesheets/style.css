@@ -130,7 +130,7 @@ body {
   background-color: #8fd3e8;
 }
 
-#footer img{
+#footer img {
   margin-left: 1rem;
 }
 
@@ -387,6 +387,15 @@ section.bg {
   width: 100%;
 }
 
-#footer .container{
+#footer .container {
   margin: 1rem auto;
+}
+
+
+input.ng-untouched::-webkit-input-placeholder {
+  color: #ccccccba
+}
+
+textarea.ng-untouched::-webkit-input-placeholder {
+  color: #ccccccba
 }
