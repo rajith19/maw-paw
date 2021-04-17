@@ -2,9 +2,10 @@ export class Movie {
     _id: string;
     name: string;
     cardImage: string;
-    genres : string[];
+    ingredients : string[];
     upcoming:boolean;
     price:number;
+    rating: number;
     reviews : [{
         author: string;
         rating: number;

@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 })
 export class MovieServiceService {
 
-  private moviesUrl = 'http://localhost:3000/api/movies';
+  private moviesUrl = 'http://localhost:3000/api/petitems';
 
 
   constructor(private http: HttpClient, private router : Router) { }
@@ -47,14 +47,6 @@ export class MovieServiceService {
       .then(response => {response as Movie, this.router.navigate(['list/'+newMovie._id]);})
       .catch(this.handleError);
   }
-
-  // getImages() {
-  //   return this.http.get<any>('assets/showcase/data/photos.json')
-  //     .toPromise()
-  //     .then(res => <Image[]>res.data)
-  //     .then(data => { return data; });
-  //   }
-
 
 
   private handleError(error: any) {

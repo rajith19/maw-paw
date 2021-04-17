@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const Pet = mongoose.model('pet');
 
-
 const getSinglePetItem = function (req, res) {
-    Pet.findById(req.params.petItemid)
+    Pet.findById(req.params.petitemid)
         .exec((err, petItemData) => {
             if (!petItemData) {
                 return res
@@ -20,28 +19,24 @@ const getSinglePetItem = function (req, res) {
                 .status(200)
                 .json(petItemData);
         });
-
 };
-const getPetItems = function (req, res) {
-    console.log("req", req.body);
-    console.log("Mongoose: ", Pet.collection.collectionName);
 
+const getPetItems = function (req, res) {
     Pet.find().exec(function (err, petItemData) {
         if (err) {
             res.status(400).json(err);
             return;
         }
         res.status(200).json(petItemData);
-        console.log("pet: ", petItemData);
     });
 };
 
 const createPetItem = function (req, res) {
-    console.log("req", req.body)
     Pet.create({
         name: req.body.name,
         image: req.body.image,
-        ingredients: req.body.ingredients.split(","),
+        ingredients: req.body.ingredients.toString()
+        .split(","),
         upcoming: req.body.upcoming,
         price: req.body.price,
         isOnSale: req.body.isOnSale,
@@ -59,51 +54,46 @@ const createPetItem = function (req, res) {
                     .json(petItemData);
             }
         });
-
 };
 
 const updatePetItem = function (req, res) {
-    if (!req.params.petItemid) {
-        res.status(404).json({ "message": "Not found, petItemid is required" })
+    if (!req.params.petitemid) {
+        res.status(404).json({ "message": "Not found, petitemid is required" })
         return;
     }
-    Pet.findById(req.params.petItemid)
+    Pet.findById(req.params.petitemid)
         .exec((err, petItemData) => {
             if (!petItemData) {
-                res.status(404).json({ "message": "petItemid not found" });
+                res.status(404).json({ "message": "petitemid not found" });
                 return;
             } else if (err) {
                 res.status(400).json(err);
                 return;
             }
-
-            // console.log("req.body.genres", req.body.genres.toString().split(','))
-            petItemData.name = req.body.name,
             petItemData.name = req.body.name,
             petItemData.image = req.body.image,
-            petItemData.ingredients= req.body.ingredients.split(","),
+            petItemData.ingredients= req.body.ingredients.toString().split(","),
             petItemData.upcoming = req.body.upcoming,
             petItemData.price = req.body.price,
             petItemData.isOnSale = req.body.isOnSale,
             petItemData.description=req.body.description,
             petItemData.rating=req.body.rating
-               
-                petItemData.save((err, petItemData) => {
-                    if (err) {
-                        res.status(404).json(err);
-                    }
-                    else {
-                        res.status(200).json(petItemData);
-                    }
-                })
+            petItemData.save((err, petItemData) => {
+                if (err) {
+                    res.status(404).json(err);
+                }
+                else {
+                    res.status(200).json(petItemData);
+                }
+            })
         })
 };
 
 const deletePetItem = function (req, res) {
-    const petItemid = req.params.petItemid;
-    if (petItemid) {
+    const petitemid = req.params.petitemid;
+    if (petitemid) {
         Pet
-            .findByIdAndRemove(petItemid)
+            .findByIdAndRemove(petitemid)
             .exec((err, petItemData) => {
                 if (err) {
                     res
@@ -118,7 +108,7 @@ const deletePetItem = function (req, res) {
     } else {
         res
             .status(404)
-            .json({ "message": "No petItemid" });
+            .json({ "message": "No petitemid" });
     }
 };
 
