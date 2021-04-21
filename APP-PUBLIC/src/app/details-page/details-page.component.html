@@ -1,8 +1,8 @@
 <div class="contentSpacing">
-  <div class="container py-5">
+  <div class="container" id="details-page">
     <div class="text-right">
       <button
-        class="btn btn-info height mr-2"
+        class="btn btn-danger height mr-2"
         type="button"
         data-toggle="modal"
         data-target="#exampleModal"
@@ -22,6 +22,13 @@
     <div
       class="card mr-sm-4 mt-4 mb-5 position-relative onHover-shadow flex-basis"
     >
+    <div class="mr-5 position-relative">
+      <img
+      class="position-absolute extraTop"
+      src="{{
+          newPet?.isOnSale == true ? 'https://res.cloudinary.com/rajith/image/upload/v1618694061/sale_a8uz7x.png' : ''
+      }}"
+    />
       <div class="card-block">
         <div class="d-sm-flex flex-wrap justify-content-center">
           <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
@@ -84,7 +91,7 @@
           <div class="modal-body">Do you really want to delete this item?</div>
           <div class="modal-footer">
             <button
-              class="btn btn-secondary"
+              class="btn btn-info"
               type="button"
               data-dismiss="modal"
             >

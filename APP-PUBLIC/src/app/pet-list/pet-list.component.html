@@ -1,5 +1,5 @@
-<<div class="contentSpacing">
-  <div class="container py-5" id="noUnderline">
+<div class="contentSpacing">
+  <div class="container" id="noUnderline">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h1 class="d-inline">Pet Item List</h1>
       <a routerLink="/new">
@@ -16,12 +16,12 @@
       >
         <a routerLink="/list/{{ pet._id }}">
           <div class="card-block">
-            <!-- <img
+            <img
               class="position-absolute"
               src="{{
-                pet.upcoming == true ? '/assets/images/soon.png' : ''
+                pet.isOnSale == true ? 'https://res.cloudinary.com/rajith/image/upload/v1618694061/sale_a8uz7x.png' : ''
               }}"
-            /> -->
+            />
             <img class="imgSize rounded" src="{{ pet.image }}" />
             <h3 class="text-center pt-2">{{ pet.name }}</h3>
             <div class="d-flex justify-content-center">

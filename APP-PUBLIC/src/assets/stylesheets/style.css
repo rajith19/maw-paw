@@ -154,6 +154,10 @@ small {
   font-weight: bold;
 }
 
+.nav-item a{
+  width: 70px
+}
+
 .navbar-light .navbar-nav .nav-link {
   color: #777777 !important;
 }
@@ -213,6 +217,11 @@ small {
   }
 }
 
+#noUnderline, #details-page{
+  padding-bottom: 10rem!important;
+  padding-top: 5rem!important;
+}
+
 #noUnderline a {
   text-decoration: none;
 }
@@ -245,6 +254,7 @@ section.bg {
   padding: 0 0 3em;
   text-align: center;
   background-color: #f7f7f7;
+  padding-bottom: 4.5rem;
 }
 
 .w-25 svg {
@@ -402,4 +412,18 @@ input.ng-untouched::-webkit-input-placeholder {
 
 textarea.ng-untouched::-webkit-input-placeholder {
   color: #ccccccba
+}
+
+#create-page{
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+}
+
+#details-page .card{
+  cursor: unset;
+}
+
+.position-absolute{
+  right: 0;
+  top:0
 }
