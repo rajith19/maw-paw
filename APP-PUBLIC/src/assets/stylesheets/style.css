@@ -154,8 +154,8 @@ small {
   font-weight: bold;
 }
 
-.nav-item a{
-  width: 70px
+.nav-item a {
+  width: 70px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -201,6 +201,10 @@ small {
   cursor: pointer;
 }
 
+#team .onHover-shadow {
+  cursor: unset;
+}
+
 .flex-basis {
   flex-basis: 22.5%;
 }
@@ -217,9 +221,10 @@ small {
   }
 }
 
-#noUnderline, #details-page{
-  padding-bottom: 10rem!important;
-  padding-top: 5rem!important;
+#noUnderline,
+#details-page {
+  padding-bottom: 10rem !important;
+  padding-top: 5rem !important;
 }
 
 #noUnderline a {
@@ -401,29 +406,29 @@ section.bg {
   margin: 1rem auto;
 }
 
-.ml-mr{
+.ml-mr {
   margin-left: 0.86rem;
   margin-right: 0.86rem;
 }
 
 input.ng-untouched::-webkit-input-placeholder {
-  color: #ccccccba
+  color: #ccccccba;
 }
 
 textarea.ng-untouched::-webkit-input-placeholder {
-  color: #ccccccba
+  color: #ccccccba;
 }
 
-#create-page{
+#create-page {
   padding-top: 5rem;
   padding-bottom: 10rem;
 }
 
-#details-page .card{
+#details-page .card {
   cursor: unset;
 }
 
-.position-absolute{
+.position-absolute {
   right: 0;
-  top:0
+  top: 0;
 }
