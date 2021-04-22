@@ -7,14 +7,14 @@
         data-toggle="modal"
         data-target="#exampleModal"
       >
-        Delete Item
+        Delete Product
       </button>
       <button
         class="btn btn-info height mr-2"
         type="button"
         (click)="btnClick(newPet?._id)"
       >
-        Edit Item
+        Edit Product
       </button>
       <a routerLink="/list/">Go Back</a>
     </div>
@@ -22,89 +22,89 @@
     <div
       class="card mr-sm-4 mt-4 mb-5 position-relative onHover-shadow flex-basis"
     >
-    <div class="mr-5 position-relative">
-      <img
-      class="position-absolute extraTop"
-      src="{{
-          newPet?.isOnSale == true ? 'https://res.cloudinary.com/rajith/image/upload/v1618694061/sale_a8uz7x.png' : ''
-      }}"
-    />
-      <div class="card-block">
-        <div class="d-sm-flex flex-wrap justify-content-center">
-          <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
-        </div>
-        <div class="d-flex">
-          <div class="mr-5">
-            <img src="{{ newPet?.image }}" width="300" />
+      <div class="mr-5 position-relative">
+        <img
+          class="position-absolute extraTop"
+          src="{{
+            newPet?.isOnSale == true
+              ? 'https://res.cloudinary.com/rajith/image/upload/v1618694061/sale_a8uz7x.png'
+              : ''
+          }}"
+        />
+        <div class="card-block">
+          <div class="d-sm-flex flex-wrap justify-content-center">
+            <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
           </div>
-          <div class="d-inline-flex align-items-start flex-column">
-            <h1>{{ newPet?.name }}</h1>
-            <div class="d-flex">
-              <span
-                class="badge badge-danger text-center mr-2 mb-2"
-                *ngFor="let ingredient of newPet?.ingredients"
-                >{{ ingredient }}</span
-              >
+          <div class="d-flex">
+            <div class="mr-5">
+              <img src="{{ newPet?.image }}" width="300" />
             </div>
-            <h2>${{ newPet?.price }}</h2>
-            <div class="d-flex">
-              <app-rating-stars [rating]="newPet?.rating"></app-rating-stars>
-            </div>
-            <!-- <p>{{newPet?.isOnSale}}</p> -->
-            <p>{{ newPet?.description }}</p>
-            <h6>About this Item</h6>
-            <ul>
-                <li *ngFor="let item of newPet?.about_item"
-                >{{ item }}</li>
-            </ul>
-            <!-- <h1>Review by admin</h1>
+            <div class="d-inline-flex align-items-start flex-column">
+              <h1>{{ newPet?.name }}</h1>
+              <div class="d-flex">
+                <span
+                  class="badge badge-danger text-center mr-2 mb-2"
+                  *ngFor="let ingredient of newPet?.ingredients"
+                  >{{ ingredient }}</span
+                >
+              </div>
+              <h2>${{ newPet?.price }}</h2>
+              <div class="d-flex">
+                <app-rating-stars [rating]="newPet?.rating"></app-rating-stars>
+              </div>
+              <!-- <p>{{newPet?.isOnSale}}</p> -->
+              <p>{{ newPet?.description }}</p>
+              <h6>About this Item</h6>
+              <ul>
+                <li *ngFor="let item of newPet?.about_item">{{ item }}</li>
+              </ul>
+              <!-- <h1>Review by admin</h1>
                         <h2>{{newPet?.reviews[0].author}}</h2>
                      
                         <h2>{{newPet?.reviews[0].reviewText}}</h2> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Delete {{ newPet?.name }}
-            </h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Do you really want to delete this item?</div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-info"
-              type="button"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              class="btn btn-danger delete-petitem"
-              data-dismiss="modal"
-              type="button"
-              (click)="deletePetItem(newPet?._id)"
-            >
-              Delete
-            </button>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Delete {{ newPet?.name }}
+              </h5>
+              <button
+                class="close"
+                type="button"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Do you really want to delete this item?
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-info" type="button" data-dismiss="modal">
+                Close
+              </button>
+              <button
+                class="btn btn-danger delete-petitem"
+                data-dismiss="modal"
+                type="button"
+                (click)="deletePetItem(newPet?._id)"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       </div>
