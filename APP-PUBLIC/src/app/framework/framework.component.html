@@ -1,44 +1,78 @@
 <div id="page-container">
-    <nav class="navbar fixed-top navbar-expand-md navbar-light">
-        <div class="container">
-            <a routerLink="" class="navbar-brand">
-                <!-- <img src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/logo_rqgxsi.png" width="150px" alt="Maw & Paw"/> -->
-                <img src="../../assets/images/logo.png" width="150px" alt="Maw & Paw"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
-                <span class="navbar-toggler-icon">
-                </span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarMain">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item d-md-flex">
-                        <a routerLink="about" routerLinkActive="active" class="nav-link">About</a>
+  <nav class="navbar fixed-top navbar-expand-md navbar-light">
+    <div class="container">
+      <a routerLink="" class="navbar-brand">
+        <!-- <img src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/logo_rqgxsi.png" width="150px" alt="Maw & Paw"/> -->
+        <img src="../../assets/images/logo.png" width="150px" alt="Maw & Paw" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarMain"
+      >
+        <span class="navbar-toggler-icon"> </span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarMain">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item d-md-flex">
+            <a routerLink="about" routerLinkActive="active" class="nav-link"
+              >About</a
+            >
 
-                        <a routerLink="list" routerLinkActive="active" class="nav-link">List</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0" (keyup.enter)="searchPet(pet)" (ngSubmit)="searchPet(pet)">
-                    <p-autoComplete [(ngModel)]="pet" name="pet" placeholder="Start Typing..."  [suggestions]="results" (completeMethod)="search($event)" class="mr-2"></p-autoComplete>
-                    <button class="btn btn-outline-info my-2 my-sm-0" 
-                    >Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+            <a routerLink="list" routerLinkActive="active" class="nav-link"
+              >List</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchPet(pet)">
+          <p-autoComplete
+            [(ngModel)]="pet"
+            name="pet"
+            placeholder="Start Typing..."
+            [suggestions]="results"
+            (completeMethod)="search($event)"
+            class="mr-2"
+          ></p-autoComplete>
+          <button class="btn btn-outline-info my-2 my-sm-0">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
-    <router-outlet></router-outlet>
-    <p-toast [baseZIndex]="5000"></p-toast>
-    <footer id="footer">
-        <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
-            <div class="row mb-2">
-                <div class="col-12 copyright">© Group Project 2021. Proudly created By Conestoga Students</div>
-            </div>
-            <div class="row">
-                <a href="https://www.facebook.com/"><img src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/fb-icon_hg7uzp.webp" alt="facebook"></a>
-                <a href="https://www.instagram.com/"><img src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/insta-icon_ao82uz.webp" alt="instagram"></a>
-                <a href="https://twitter.com/"><img src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/twitter-icon_feokhn.webp" alt="twitter"></a>
-                <a href="https://youtube.com/"><img src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/youtube-icon_smme4b.webp" alt="youtube"></a>
-            </div>
+  <router-outlet></router-outlet>
+  <p-toast [baseZIndex]="5000"></p-toast>
+  <footer id="footer">
+    <div
+      class="container h-100 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="row mb-2">
+        <div class="col-12 copyright">
+          © Group Project 2021. Proudly created By Conestoga Students
         </div>
-    </footer>
+      </div>
+      <div class="row">
+        <a href="https://www.facebook.com/"
+          ><img
+            src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/fb-icon_hg7uzp.webp"
+            alt="facebook"
+        /></a>
+        <a href="https://www.instagram.com/"
+          ><img
+            src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/insta-icon_ao82uz.webp"
+            alt="instagram"
+        /></a>
+        <a href="https://twitter.com/"
+          ><img
+            src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/twitter-icon_feokhn.webp"
+            alt="twitter"
+        /></a>
+        <a href="https://youtube.com/"
+          ><img
+            src="https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618619173/youtube-icon_smme4b.webp"
+            alt="youtube"
+        /></a>
+      </div>
+    </div>
+  </footer>
 </div>

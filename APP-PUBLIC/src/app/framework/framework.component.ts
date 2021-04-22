@@ -66,7 +66,7 @@ export class FrameworkComponent implements OnInit {
   }
 
   showInfo() {
-    this.messageService.add({severity:'info', summary: 'Info', detail: 'Item not found'});
+    this.messageService.add({severity:'info', summary: this.pet, detail: 'Item not found'});
 }
 
 
