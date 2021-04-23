@@ -29,7 +29,7 @@ data:any[] = ["https://res.cloudinary.com/dsu7d8dwj/image/upload/v1618523376/cat
   ngOnInit(): void {
     
     this.images1 = this.data;
-    console.log("this", this.images1)
+    // console.log("this", this.images1)
   }
 
   public pageContent = {

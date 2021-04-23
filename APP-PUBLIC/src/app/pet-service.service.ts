@@ -41,7 +41,7 @@ export class PetServiceService {
 
 
   updatePetItem(newPet: Pet): Promise<void | Pet> {
-    console.log("new", newPet)
+    // console.log("new", newPet)
     return this.http.put(this.petsUrl + '/' + newPet._id, newPet)
       .toPromise()
       .then(response => {response as Pet, this.router.navigate(['list/'+newPet._id]);})
